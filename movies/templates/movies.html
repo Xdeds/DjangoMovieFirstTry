@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<!-- Bootstrap-Core-CSS -->
+<!--/ Style-CSS -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!--// Style-CSS -->
+<!-- font-awesome-icons -->
+{% block movie %}
+<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+<div id="page" class="page">
+    <!-- mian-content -->
+    <div class="main-banner bg bg1" id="home" style="background-color: rgba(0, 0, 0, 0); margin-top: 0px; background-image: url(&quot;static/image/single-post-pic.jpg&quot;);">
+
+            <!--/banner-->
+            <div class="banner-info">
+                <p class="editContent" >лучший сайт на django 3</p>
+                <h3 class="mb-4 editContent">Все о кино</h3>
+                <div class="ban-buttons">
+
+
+                </div>
+            </div>
+            <!--// banner-inner -->
+            
+        </div>
+        <!--//main-content-->
+        <!---->
+        <ol class="breadcrumb editContent">
+            <li class="breadcrumb-item">
+                <a href="{% url 'movies' %}" class="editContent">Home</a>
+            </li>
+            <li class="breadcrumb-item active editContent">Single Page</li>
+        </ol>
+        <!---->
+        <!-- banner -->
+        
+        
+        <div class="left-ads-display col-lg-9">
+            <div class="row">
+                {% for i in movie %}
+                            <div class="col-md-4 product-men">
+                                <div class="product-shoe-info editContent text-center mt-lg-4" >
+                                    <div class="men-thumb-item">
+                                        <img src="{{i.poster.url}}" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="item-info-product">
+                                        <h4>
+                                            <a href="{% url  'moviesingle' i.id %}" class="editContent" >{{i.title}}</a></h4>
+                                        <div class="product_price">
+                                            <div class="grid-price ">
+                                                <span class="money ">{{i.tagline}}</span>
+                                            </div>
+                                        </div>
+                                        <ul class="stars">
+                                            <li><a href="#"><span class="fa fa-star" aria-hidden="true" ></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star" aria-hidden="true" ></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star" aria-hidden="true" ></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true" ></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star-o" aria-hidden="true" ></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <!--<div class="grid-img-right mt-4 text-right bg bg1" >
+                            <span class="money editContent" >Flat 50% Off</span>
+                            <a href="moviesingle.html" class="btn" >Now</a>
+                        </div>-->
+                    </div>
+                
+
+        <!-- //contact -->
+        <!-- footer -->
+{% endblock movie %}
